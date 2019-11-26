@@ -1,13 +1,33 @@
 import React from 'react';
-import { Text, StyleSheet } from 'react-native';
+import { Text, StyleSheet, View } from 'react-native';
 
 const ComponentsScreen = () => {
-  return <Text style={styles.textCustom}>Custom Component</Text>;
+  return (
+    <View>
+      <Text style={styles.textCustom}>{data.viewName}</Text>
+      <Text style={styles.textCustomNew}>{funcs.myFunction(2, 3)}</Text>
+      {data.customTextInVar}
+    </View>
+  )
 };
+
+const data = {
+  viewName: 'Name of my view',
+  customTextInVar: <Text>My Awesome Custom text in var!</Text>
+}
+
+const funcs = {
+  myFunction: (num1, num2) => {
+    return num1 + num2;
+  }
+}
 
 const styles = StyleSheet.create({
   textCustom: {
-    fontSize: 60
+    fontSize: 60,
+  },
+  textCustomNew: {
+    fontSize: 60,
   }
 });
 
